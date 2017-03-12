@@ -2,7 +2,7 @@ def first_challenge
   contacts = {
     "Jon Snow" => {
       name: "Jon",
-      email: "jon_snow@thewall.we", 
+      email: "jon_snow@thewall.we",
       favorite_icecream_flavors: ["chocolate", "vanilla", "mint chip"],
       knows: nil
     },
@@ -13,10 +13,20 @@ def first_challenge
     }
   }
 
-  #your code here
+  contacts["Jon Snow"][:address] = "The Lord Commander's Rooms, The Wall, Westeros"
+  contacts.each do |name, v|
+    v.each do |a,b|
+      b.delete("strawberry") if a == :favorite_icecream_flavors
+    end
+  end
 
+=begin
 
-  #remember to return your newly altered contacts hash!
+# shorter but more direct way
+
+  contacts["Freddy Mercury"][:favorite_icecream_flavors].delete("strawberry")
+
+=end
+
   contacts
 end
-
